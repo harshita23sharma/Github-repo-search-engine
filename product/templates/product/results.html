@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{% block title%}Github Search Engine{% endblock %}</title>
+
+
+<style>
+.form-control {
+     display: block;
+     height: 48px;
+     padding: 6px 12px;
+     width: 400px;
+     border: 4px solid #45416D;
+     border-radius: 19px;
+}
+.center-display{
+     margin:auto;
+     /*position:absolute;*/
+     top:0;
+     bottom:0;
+     right:0;
+     left:0;
+}
+.results{
+     /*margin-top:10%;*/
+}
+</style>
+
+</head>
+
+<body>
+<header>
+
+</header>
+ <div class="container">
+      <div class="starter-template">
+        <h1>Resultttt  of Customer Genomics</h1>
+
+
+
+
+        <div class='results'>
+          
+          <table style ="float: left"class="table table-striped table-responsive table-hover table-bordered">
+               <tr>
+                    <th> AMAZON's Product  </th>
+               </tr>
+               
+                    <tr>
+                         <td> {{amazon_result_pos}} </td>
+                         <td> {{amazon_result_neg}} </td>
+
+                    </tr>     
+               {% endfor %}
+          </table>
+               
+      </div>
+
+      <div class='results'>
+  <!--         <h3>{{flipkart_names|length}} Search Results Found...</h3>
+          <p class="lead small" style="background-color: yellow;">These below values are real during the crawling happened just now .Now these values may vary or may not.</p> -->
+          <table style = "float : left" class="table table-striped table-responsive table-hover table-bordered">
+               <tr>
+                    <th> SNAPDEAL's Product  </th>
+                    
+               </tr>
+              
+                    <tr>
+                         <td>{{snapdeal_result_pos}}</td>
+                         <td>{{snapdeal_result_neg}}</td>
+  
+                    </tr>     
+               {% endfor %}
+          </table>
+               
+      </div>
+
+
+
+
+
+
+        
+      </div>
+
+      
+      
+      
+    </div><!-- /.container -->
+</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+<style>
+.form-control {
+     display: block;
+     height: 48px;
+     padding: 6px 12px;
+     width: 400px;
+     border: 4px solid #45416D;
+     border-radius: 19px;
+}
+.center-display{
+     margin:auto;
+     /*position:absolute;*/
+     top:0;
+     bottom:0;
+     right:0;
+     left:0;
+}
+.results{
+     /*margin-top:10%;*/
+}
+</style>
+
+</head>
+
+<body>
+<header>
+
+</header>
+ <div class="container">
+
+      <div class="starter-template">
+        <!-- <h1>Result Of Search Engine</h1> -->
+        <!-- <p class="lead small">search.com<br> All you get is price and ratings of the items for your search word.</p> -->
+      </div>
+
+    <section class = "radio">
+	<form action="selected-result/" method="POST" onsubmit="return main_scrapy()">
+		{% csrf_token %}
+		{{ form.as_p }}
+   <!--  {{amazon_url_list}}
+    {{amazon_names}}
+    {{flipkart_url_list}}
+    {{flipkart_names}} -->
+		<!--  <input type = "submit" value = "Submit" />
+		<button type="submit">Submit</button> -->
+    <div class="controls">
+    <div class='results'>
+          <h3>{{amazon_names|length}} Search Results Found...</h3>
+          <p class="lead small" style="background-color: yellow;">These below values are real during the crawling happened just now .Now these values may vary or may not.</p>
+          <table style ="float: left"class="table table-striped table-responsive table-hover table-bordered">
+               <tr>
+                    <th> Amazon Product Name  </th>
+               </tr>
+               {% for sr,val in amazon_names.items %}
+                    <tr>
+                         <td>{{sr}}
+                          <fieldset>
+                            <legend>check boxes</legend>
+                            <label><input type ="checkbox" input id = "selected_choice[]" name = "selected_choice" value ="{{val}}"> {{sr}}</label></fieldset>
+
+                         </td>
+                    </tr>     
+               {% endfor %}
+          </table>
+               
+      </div>
+
+      <input type = "submit" value="send form" > 
+      </div>
+     
+
+	</form>
+</section>
+      
+      
+    </div><!-- /.container -->
+</body>
+</html>
+
+
+

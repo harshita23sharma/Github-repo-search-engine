@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{% block title%}Github Search Engine{% endblock %}</title>
+<script>
+  function changeURL(val){
+    window.location="127.0.0.1:8000/product/your-name/";
+  }
+</script>
+
+<style>
+.form-control {
+     display: block;
+     height: 48px;
+     padding: 6px 12px;
+     width: 400px;
+     border: 4px solid #45416D;
+     border-radius: 19px;
+}
+.center-display{
+     margin:auto;
+     /*position:absolute;*/
+     top:0;
+     bottom:0;
+     right:0;
+     left:0;
+}
+.results{
+     /*margin-top:10%;*/
+}
+</style>
+
+</head>
+
+<body>
+<header>
+
+</header>
+ <div class="container">
+
+      <div class="starter-template">
+        <h1>Search Engine</h1>
+        
+      </div>
+
+      <form class="form" action="/product/your-name/" method="post" name="new-service" enctype=multipart/form-data>
+      <div class="control-group">
+          
+          <div class="controls">
+          		<label for="your_product">Your Search Keyword(s): </label>
+              {% csrf_token %}
+               <input id="your_product" name="your_product"  value = "{{current_name}}" type="text" placeholder="Search.. eg: TX_SCK_INSERTED" class="form-control input-xlarge search-query center-display"  required="">
+          </div>
+     </div>
+      
+      </form>
+      
+      
+    </div><!-- /.container -->
+</body>
+</html>

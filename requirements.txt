@@ -1,0 +1,7 @@
+django
+pymongo
+pandas
+numpy
+requests
+nltk
+bs4
