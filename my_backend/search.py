@@ -19,7 +19,7 @@ print(col_names)
 
 fin_dict = {}
 ans = []
-for count in range(105):
+for count in range(106):
     ans2 = []
     new_dict = {}
     cur = db.test.find({"_id":count})
@@ -58,7 +58,7 @@ cur = db.test.find()
 ans = []
 term_doc_dict = {}
 
-for count in range(35):
+for count in range(config_index.FILES_COUNT):
     appended_dict = {}
     ans = []
     cur = db.test.find({"_id":count})

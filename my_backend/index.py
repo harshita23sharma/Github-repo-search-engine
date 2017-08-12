@@ -20,7 +20,8 @@ root = str(d) + FOLDER
 count = 0
 for path, subdirs, files in os.walk(root):
     for name in files:
-        if fnmatch.fnmatch(name, '*.c'):            
+        if fnmatch.fnmatch(name, '*.c'):
+            count +=1            
             path2 = os.path.join(path, name)
             try:
                 f = open(path2)  # open a file
@@ -28,7 +29,7 @@ for path, subdirs, files in os.walk(root):
     #             build a document to be inserted
                 text_file_doc = {"file_name": name, "contents" : text ,"_id":count}
                 db.test.insert(text_file_doc)
-                count +=1
-                print("------------------------",count)
+                
+                print("------------------------",name,count)
             except Exception as e:
                 continue
