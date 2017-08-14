@@ -19,7 +19,7 @@ print(col_names)
 
 fin_dict = {}
 ans = []
-for count in range(106):
+for count in range(config_index.FILES_COUNT):
     ans2 = []
     new_dict = {}
     cur = db.test.find({"_id":count})
@@ -27,7 +27,7 @@ for count in range(106):
     for i in cur:
         raw_review = i['contents']
         review_text = raw_review
-        letters_only = re.sub("[^a-zA-Z0-9_]", " ", review_text)
+        letters_only = re.sub("[^a-zA-Z0-9_*]", " ", review_text)
         words = letters_only.split()
         ans2.extend(words)
         ans.extend(words)
@@ -67,7 +67,7 @@ for count in range(config_index.FILES_COUNT):
         prev_dict = {}
         raw_review = i['contents']
         review_text = raw_review
-        letters_only = re.sub("[^a-zA-Z0-9_]", " ", review_text)
+        letters_only = re.sub("[^a-zA-Z0-9_*]", " ", review_text)
         words = letters_only.split()
         for k in words:
             appended_dict = append_value_to_key(prev_dict,k,i["file_name"])
