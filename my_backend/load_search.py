@@ -45,19 +45,28 @@ def find_file(q_param):
 
 	letters_only = re.sub("[^a-zA-Z0-9_*]", " ", q_param)
 	q_words = letters_only.split()
+	file_list_filter = []
+
 	for q_param in q_words:
 		try:
 			df3.loc[[str(q_param)]]=1
 		except Exception as e:
+			file_list_filter.append(e)
 			print(e)
-	file_list_filter = []
 	for i in col_names:
 		count = df.astype(bool)
 		for q_param in q_words:
-			if df.loc[str(q_param)][i] == 0:
-				break
-			else:
-				file_list_filter.append(i)
+			try:
+
+				if df.loc[str(q_param)][i] == 0:
+					break
+				else:
+					file_list_filter.append(i)
+			except Exception as e:
+				print(e)
+				file_list_filter.append(e)
+				continue
+
 	try:
 		df4 = df3.transpose()
 		df_final= df4.astype(float).dot(df1.astype(float))
