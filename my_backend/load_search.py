@@ -103,10 +103,8 @@ def find_file(q_param):
 		new_data = "  ".join([i for sub in grams for i in sub])
 		
 		if len(new_data)==0 :
-			print(contents)
 			return(list(set(file_list_filter)),contents)
 		else:
-			print("new_data is..",new_data,"....end")
 			return(list(set(file_list_filter)),new_data)
 
 
